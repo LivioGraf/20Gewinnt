@@ -5,8 +5,10 @@ echo -e '\e[34mWer zuerst 20 erreicht gewinnt!\e[0m'
 echo -e '\e[34mDu kannst immer um 1 oder 2 erhöhen.\e[0m'
 echo
 
+echo -e "\e[34mGib deinen Namen hier ein: \e[0m"
+read userName
+
 gameCount=0
-livio=12
 
 checkIfWon() {
     if [ $(($1 + $2)) -ge 20 ]
@@ -20,7 +22,7 @@ checkIfWon() {
 
 while [ $gameCount -lt 20 ]
 do
-    echo -e '\e[35mDeine Eingabe: \e[0m'
+    echo -e "\e[35m$userName du bist am Zug (Zahl zwischen 1 und 2): \e[0m"
     read userInput
     echo
 
