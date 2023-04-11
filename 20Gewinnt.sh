@@ -93,14 +93,20 @@ then
             gameCount=$(($gameCount + $playerOneInput))
 
             echo -e "\e[34mDer Game Count ist $gameCount.\e[0m"
-            echo -e "\e[34m$playerTwo du bist am Zug: \e[0m"
-            read playerTwoInput
 
-            if ! [[ $playerTwoInput =~ ^(1|2)$ ]]
-            then
-                echo -e "\e[34mDie Eingabe $playerTwoInput ist eine ungültige Eingabe\e[0m"
-            fi
+            while [ true ]
+            do
+                echo -e "\e[34m$playerTwo du bist am Zug: \e[0m"
+                read playerTwoInput
 
+                if ! [[ $playerTwoInput =~ ^(1|2)$ ]]
+                then
+                    echo -e "\e[34mDie Eingabe $playerTwoInput ist eine ungültige Eingabe\e[0m"
+                else
+                    break
+                fi
+            done
+            
             checkIfWon $playerTwoInput $gameCount "Der Spieler $playerTwo hat gewonnen!!!"
             gameCount=$(($gameCount + $playerTwoInput))
 
