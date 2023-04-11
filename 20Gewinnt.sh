@@ -2,14 +2,7 @@
 
 userInput=0
 
-while [ true ]
-do
-    echo -e "\e[34mWähle einen Modus aus oder falls du das Spiel nicht kennst schau dir das turotial an.\e[0m"
-
-    echo -e "\e[34m1)PvE\n2)PvP\n3)PCvsPC\n4)Tutorial\e[0m"
-    read modusSelection
-
-    checkIfWon() {
+checkIfWon() {
         if [ $(($1 + $2)) -ge 20 ]
         then
             local gameCount=$(($1 + $2))
@@ -18,6 +11,13 @@ do
             exit
         fi
     }
+
+while [ true ]
+do
+    echo -e "\e[34mWähle einen Modus aus oder falls du das Spiel nicht kennst schau dir das turotial an.\e[0m"
+
+    echo -e "\e[34m1)PvE\n2)PvP\n3)PCvsPC\n4)Tutorial\e[0m"
+    read modusSelection
 
     if ! [[ $modusSelection =~ ^(1|2|3|4)$ ]]
     then
